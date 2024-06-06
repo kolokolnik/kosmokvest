@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+	<title>Космовикторина</title>
+	<style type="text/css">
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	body, html {
+		height: 100%;
+	}
+	p, h1, h2, h3, h4, h5, h6 {
+		color: white;
+		font-family: 'Lato', sans-serif;
+		font-size: 5vw;
+	}
+		body {
+			background-color: #302e4a;
+		}
+		main {
+			min-height: 50px;
+			max-height: 10000px;
+			width: 90%;
+			background-color: #708090;
+			border-radius: 20px;
+			margin-top: 2vw;
+			margin-left: 5vw;
+		}
+		.title {
+			margin-left: 10%;
+		}
+		.img {
+			width: 35%;
+			height: 25vw;
+		
+		}
+		.question {
+			width: 50%;
+			display: flex;
+			flex-direction: column;
+			padding-bottom: 5vw;
+			margin-top: -10vw;
+			margin-left: 40%;
+
+		}
+		.top, .bottom {
+			display: flex;
+		}
+		.qwest {
+			border: 10px solid white;
+			width: 20%;
+			height: 6vw;
+			display: flex;
+			text-align: center;
+			border-radius: 20px;
+			margin-left: 1%;
+		}
+		.qwest1 {
+			color: #fff;
+			text-decoration: none;
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			margin: 0 10px;
+			transition: color .2s linear;
+			font-size: 18px;
+		}
+		.nav_link:after{
+			content: "";
+			display: block;
+			width: 100%;
+			height: 3px;
+			background-color: #00FFFF;
+			border-radius: 1px;
+ 			opacity: 0;
+			position: absolute;
+			transition: opacity .2s linear;
+			top: 100%;
+			left: 0;
+			z-index: 1;
+		}
+
+		.num {
+			margin-left: 25%;
+		}
+
+		.ten {
+			margin-left: 3%;
+		}
+		.bottom {
+			margin-top: 1vw;
+		}
+		.qwest:hover {
+			cursor: pointer;
+		}
+		.man {
+			margin-top: -10vw;
+			margin-bottom: 5vw;
+			width: 70%;
+		}
+		.par {
+			font-size: 2vw;
+		}
+		.m_qwest {
+			display: none;
+			top: 3vw;
+			height: 44vw;
+			width: 80%;
+			background-color: #3c3c40;
+			border-radius: 20px;
+			left: 10%;
+			position: absolute;
+		}
+		.quest_title {
+			font-size: 3vw;
+			margin-left: 5%;
+		}
+		.text-qwest {
+			width: 90%;
+			margin-left: 5%;
+			margin-top: 3vw;
+		}
+		.text_main {
+			font-size: 1.5vw;
+		}
+		.oleg {
+			width: 70%;
+			margin-left: 15%;
+			height: 2.7vw;
+			font-size: 2vw;
+			border-radius: 20px;
+			margin-top: 4vw;
+			border: none;
+
+		}
+
+		.btn {
+			height: 3vw;
+			border-radius: 20px;
+			background-color: lightgrey;
+			border: none;
+			width: 12%;
+			margin-left: 44%;
+			margin-top: 4vw;
+			font-size: 1.7vw;
+		}
+		.btn:hover {
+			background-color: darkgrey;
+			cursor: pointer;
+		}
+		.form {
+			display: flex;
+			flex-direction: column;
+		}
+		.answer {
+			font-size: 2vw;
+			text-align: center;
+			margin-top: 2vw;
+		}
+		.close {
+			margin-top: 3vw;
+			text-align: center;
+			font-size: 2vw;
+			cursor: pointer;
+		}
+		.close:hover {
+			color: grey;
+		}
+		input {outline:none;}
+		input:active {outline:none;}
+		
+	</style>
+</head>
+<body>
+	<main>
+		<div class="title"><h1>Космическая викторина</h1></div>
+		<div class="img"><img src="1.png" alt="" width="100%"></div>
+		<div class="question">
+			<div class="man"><p class="par" id="par"></p></div>
+			<div class="top">
+				<div class="qwest" onclick="test('a')"><h1 class="num">1</h1></div>
+				<div class="qwest" onclick="test('a_1')"><h1 class="num">2</h1></div>
+				<div class="qwest" onclick="test('a_3')"><h1 class="num">3</h1></div>
+				<div class="qwest" onclick="test('a_4')"><h1 class="num">4</h1></div>
+				<div class="qwest" onclick="test('a_5')"><h1 class="num">5</h1></div>
+			</div>
+			<div class="bottom">
+				<div class="qwest" onclick="test('a_6')"><h1 class="num">6</h1></div>
+				<div class="qwest" onclick="test('a_7')"><h1 class="num">7</h1></div>
+				<div class="qwest" onclick="test('a_8')"><h1 class="num">8</h1></div>
+				<div class="qwest" onclick="test('a_9')"><h1 class="num">9</h1></div>
+				<div class="qwest" onclick="test('a_10')"><h1 class="num ten">10</h1></div>
+			</div>
+		</div>
+		<a href="index.html" class="qwest1"><h1>Назад</h1></div></a>
+		<div class="m_qwest" id="a">
+			<h1 class="quest_title">Вопрос 1</h1>
+			<div class="text-qwest"><p class="text_main">В какой галактике живут люди?</p></div><!--Сюда в тэг p вставить текст вопроса -->
+			<div class="form">
+				<input type="text" name="oleg" class="oleg" id="oleg">
+				<p class="answer" id="answer"></p>
+				<input type="button" class="btn" id="btn" value="Проверить" onclick="valid('oleg', 'answer', 'Млечный Путь')"><!-- Вместо qwerty написать правильный ответ -->
+			</div>
+			<p class="close" onclick="hide('a')">Закрыть вопрос</p>
+		</div>
+
+		<div class="m_qwest" id="a_1">
+			<h1 class="quest_title">Вопрос 2</h1>
+			<div class="text-qwest"><p class="text_main">Как называется единственная звезда Солнечной Ситстемы?</p></div><!--Сюда в тэг p вставить текст вопроса -->
+			<div class="form">
+				<input type="text" name="oleg" class="oleg" id="oleg_1">
+				<p class="answer" id="answer_1"></p>
+				<input type="button" class="btn" id="btn" value="Проверить" onclick="valid('oleg_1', 'answer_1', 'Солнце')"><!-- Вместо qwerty написать правильный ответ -->
+			</div>
+			<p class="close" onclick="hide('a_1')">Закрыть вопрос</p>
+		</div>
+
+		<div class="m_qwest" id="a_3">
+			<h1 class="quest_title">Вопрос 3</h1>
+			<div class="text-qwest"><p class="text_main">Кто является первым космонавтом планеты?</p></div><!--Сюда в тэг p вставить текст вопроса -->
+			<div class="form">
+				<input type="text" name="oleg" class="oleg" id="oleg_3">
+				<p class="answer" id="answer_3"></p>
+				<input type="button" class="btn" id="btn" value="Проверить" onclick="valid('oleg_3', 'answer_3', 'Юрий Гагарин')"><!-- Вместо qwerty написать правильный ответ -->
+			</div>
+			<p class="close" onclick="hide('a_3')">Закрыть вопрос</p>
+		</div>
+
+		<div class="m_qwest" id="a_4">
+			<h1 class="quest_title">Вопрос 4</h1>
+			<div class="text-qwest"><p class="text_main">В каком году произошел первый полет в космос человеком?(В ответе запишите только число)</p></div><!--Сюда в тэг p вставить текст вопроса -->
+			<div class="form">
+				<input type="text" name="oleg" class="oleg" id="oleg_4">
+				<p class="answer" id="answer_4"></p>
+				<input type="button" class="btn" id="btn" value="Проверить" onclick="valid('oleg_4', 'answer_4', '1961')"><!-- Вместо qwerty написать правильный ответ -->
+			</div>
+			<p class="close" onclick="hide('a_4')">Закрыть вопрос</p>
+		</div>
+
+		<div class="m_qwest" id="a_5">
+			<h1 class="quest_title">Вопрос 5</h1>
+			<div class="text-qwest"><p class="text_main">Большие небесные тела, разборасанные по всему космическому пространству?</p></div><!--Сюда в тэг p вставить текст вопроса -->
+			<div class="form">
+				<input type="text" name="oleg" class="oleg" id="oleg_5">
+				<p class="answer" id="answer_5"></p>
+				<input type="button" class="btn" id="btn" value="Проверить" onclick="valid('oleg_5', 'answer_5', 'Звёзды')"><!-- Вместо qwerty написать правильный ответ -->
+			</div>
+			<p class="close" onclick="hide('a_5')">Закрыть вопрос</p>
+		</div>
+
+		<div class="m_qwest" id="a_6">
+			<h1 class="quest_title">Вопрос 6</h1>
+			<div class="text-qwest"><p class="text_main">Самые маленькие по размерам небесные тела?</p></div><!--Сюда в тэг p вставить текст вопроса -->
+			<div class="form">
+				<input type="text" name="oleg" class="oleg" id="oleg_6">
+				<p class="answer" id="answer_6"></p>
+				<input type="button" class="btn" id="btn" value="Проверить" onclick="valid('oleg_6', 'answer_6', 'Метеориты')"><!-- Вместо qwerty написать правильный ответ -->
+			</div>
+			<p class="close" onclick="hide('a_6')">Закрыть вопрос</p>
+		</div>
+		
+		<div class="m_qwest" id="a_7">
+			<h1 class="quest_title">Вопрос 7</h1>
+			<div class="text-qwest"><p class="text_main">Наука, изучающая небесные объекты и события - это..?</p></div><!--Сюда в тэг p вставить текст вопроса -->
+			<div class="form">
+				<input type="text" name="oleg" class="oleg" id="oleg_7">
+				<p class="answer" id="answer_7"></p>
+				<input type="button" class="btn" id="btn" value="Проверить" onclick="valid('oleg_7', 'answer_7', 'Астрономия')"><!-- Вместо qwerty написать правильный ответ -->
+			</div>
+			<p class="close" onclick="hide('a_7')">Закрыть вопрос</p>
+		</div>
+
+		<div class="m_qwest" id="a_8">
+			<h1 class="quest_title">Вопрос 8</h1>
+			<div class="text-qwest"><p class="text_main">C древнегреческого, астрономия - это наука, изучающая ...?</p></div><!--Сюда в тэг p вставить текст вопроса -->
+			<div class="form">
+				<input type="text" name="oleg" class="oleg" id="oleg_8">
+				<p class="answer" id="answer_8"></p>
+				<input type="button" class="btn" id="btn" value="Проверить" onclick="valid('oleg_8', 'answer_8', 'Законы звёзд')"><!-- Вместо qwerty написать правильный ответ -->
+			</div>
+			<p class="close" onclick="hide('a_8')">Закрыть вопрос</p>
+		</div>
+
+		<div class="m_qwest" id="a_9">
+			<h1 class="quest_title">Вопрос 9</h1>
+			<div class="text-qwest"><p class="text_main">Сколько планет входит в состав Солнечной Системы?(Ответ запишите словом)</p></div><!--Сюда в тэг p вставить текст вопроса -->
+			<div class="form">
+				<input type="text" name="oleg" class="oleg" id="oleg_9">
+				<p class="answer" id="answer_9"></p>
+				<input type="button" class="btn" id="btn" value="Проверить" onclick="valid('oleg_9', 'answer_9', 'Восемь')"><!-- Вместо qwerty написать правильный ответ -->
+			</div>
+			<p class="close" onclick="hide('a_9')">Закрыть вопрос</p>
+		</div>
+			<div class="m_qwest" id="a_10">
+			<h1 class="quest_title">Вопрос 10</h1>
+			<div class="text-qwest"><p class="text_main">Назовите двух ледяных гигантов Солнечной Системы(... и ...)</p></div><!--Сюда в тэг p вставить текст вопроса -->
+			<div class="form">
+				<input type="text" name="oleg" class="oleg" id="oleg_10">
+				<p class="answer" id="answer_10"></p>
+				<p class="answer" id="result"></p>
+				<input type="button" class="btn" id="btn" value="Проверить" onclick="valid('oleg_10', 'answer_10', 'Уран и Нептун'); final('result')"><!-- Вместо qwerty написать правильный ответ -->
+			</div>
+			<p class="close" onclick="hide('a_10')">Закрыть вопрос</p>
+		</div>
+		</div>
+	</main>
+	<script type="text/javascript">
+		var word_1 = "А я утверждаю, что достаточно запустить в космос какую-нибудь точку опоры и приставить лестницу. Дорога на небеса открыта.";
+		var word_2 = "В самый темный час мы видим звезды.";
+		var word_3 = "Космос есть внутри нас, мы сделаны из звёздного вещества, мы — это способ, которым Космос познаёт себя.";
+		var word_4 = "Жизнь показывает, что и космос будут осваивать не какие-нибудь супермены, а самые простые люди.";
+		var word_5 = "В космос. В космос всем! Быстро в космос собрались, рюкзаки собрали! Полетели! В космос."
+		var word_6 = "Если не можешь улететь в космос, сделай так, чтобы он прилетел к тебе."
+		var word_7 = "Если космос располагает безграничным запасом времени, это не просто означает, что может произойти всё, что угодно. Это означает, что всё когда-нибудь действительно произойдет."
+		var word_8 = "Звёзды не боятся, что их примут за светляков. "
+		var word_9 = "Звёзды показывают нам Величие и красоту Вселенной, в которой, мы, вечные странники космоса, стремимся отыскать свою звезду."
+		var word_10 = "Возможно, звезды на небе кажутся нам ясными и чистыми лишь потому, что так далеки от нас и мы ничего не знаем об их частной жизни."
+
+		var rand = [word_1, word_2, word_3, word_4, word_5, word_6, word_7, word_8, word_9, word_10];
+		var i = Math.floor(Math.random() * rand.length);
+
+		var doc = document.getElementById("par");
+
+		doc.innerHTML = rand[i];
+
+		var ver = 0;
+
+		function test(a) {
+			let show = document.getElementById(a);
+			show.style.display = "block";
+		}
+
+		function hide(a) {
+			let show = document.getElementById(a);
+			show.style.display = "none";
+		}
+		
+
+		function valid(ert, asdd, b) {
+			let form = document.getElementById(ert).value;
+		var asd = document.getElementById(asdd);
+			
+			if (form == b) {
+				asd.innerHTML = "Все верно";
+				ver++;
+			} else {
+				asd.innerHTML = "Неверно";
+			}
+		}
+
+		function final(a) {
+			var asd = document.getElementById(a);
+
+			asd.append("Вы набрали " + ver + " из 10")
+		}
+
+		
+	</script>
+</body>
+</html>
